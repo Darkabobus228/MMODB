@@ -15,7 +15,7 @@ namespace WpfApp1
     {
         public static bool RegisterUserDB(string login, string password)
         {
-            if (login.Trim() != null && password.Trim() != null)
+            if (login.Trim() != "" && password.Trim() != "")
             {
                 string connString = @"Data Source = DBSRV\vip2024; Initial Catalog = Saveli_MMORPG; Integrated Security = True;";
                 SqlConnection connection = new SqlConnection(connString);
@@ -37,7 +37,7 @@ namespace WpfApp1
 
         public static bool CheckUserDB(string login, string password)
         {
-            if (login.Trim() != null && password.Trim() != null)
+            if (login.Trim() != "" && password.Trim() != "")
             {
                 string connString = @"Data Source = DBSRV\vip2024; Initial Catalog = Saveli_MMORPG; Integrated Security = True;";
                 SqlConnection connection = new SqlConnection(connString);
