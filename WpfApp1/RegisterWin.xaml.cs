@@ -10,25 +10,29 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.Data.SqlClient;
 
 namespace WpfApp1
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для RegisterWin.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class RegisterWin : Window
     {
-        public MainWindow()
+        public RegisterWin()
         {
             InitializeComponent();
         }
 
-        private void bt_Save_Click(object sender, RoutedEventArgs e)
+        private void bt_login_Click(object sender, RoutedEventArgs e)
         {
-            CharacterInfoClass.Register(tb_Name.Text, tb_Floor.Text, (int)sr_lvl.Value);
+            bool result = SingInClass.RegisterUserDB(tb_loginLog.Text, tb_loginPass.Text);
+            if (result) 
+            {
+                MainWindow win = new MainWindow();
+                this.Close();
+                win.ShowDialog();
+            }
         }
     }
 }
